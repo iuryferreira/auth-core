@@ -6,9 +6,6 @@
   Authentication API with NET Core 3.1
 </h3>
 
-https://image.flaticon.com/icons/png/512/1995/1995670.png
-
-
 <p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/badge/language-1-blue">
 
