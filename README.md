@@ -1,6 +1,6 @@
-<h1 align="center">
+<p align="center">
   <img alt="Authentication" title="Authentication" src="https://image.flaticon.com/icons/png/512/1995/1995670.png" width="200px" />
-</h1>
+</p>
 
 <h3 align="center">
   Authentication API with NET Core 3.1
@@ -15,13 +15,13 @@
 
   <img alt="License" src="https://img.shields.io/badge/licence-MIT-blue">
 
-## ✌ Hello!
+### ✌ Hello!
 
 This repository contains an authentication API using NET Core 3.1 based on ```roles```, which authenticates a user by providing the credentials of ```username``` and ```password``` and returns a   ```jwt token```, used to access API functionality. 
 
 The database provider used is [```npgsql```] (https://www.npgsql.org/efcore/index), for PostgreSQL
 
-## :memo: License
+### :memo: License
 
 MIT Licence. See the file [LICENSE](LICENSE.md) for more details.
 
