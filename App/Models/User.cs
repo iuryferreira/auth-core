@@ -1,13 +1,15 @@
 using System;
 
-namespace App.Models {
+namespace App.Models
+{
 
-    public class User {
+    public class User
+    {
 
         public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public DateTime LastAcess { get; set; }
+        public DateTime LastAccess { get; set; }
     }
 
 }
