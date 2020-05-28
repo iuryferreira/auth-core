@@ -13,7 +13,7 @@
     <img alt="Made by Iury Ferreira" src="https://img.shields.io/badge/made%20by-Iury%20Ferreira-blue">
   </a>
 
-  <img alt="License" src="https://img.shields.io/badge/licence-MIT-blue">
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-blue">
 
 ### ✌ Hello!
 
