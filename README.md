@@ -15,7 +15,6 @@
 
   <img alt="License" src="https://img.shields.io/badge/licence-MIT-blue">
 
-
 ## ✌ Hello!
 
 This repository contains an authentication API using NET Core 3.1 based on ```roles```, which authenticates a user by providing the credentials of ```username``` and ```password``` and returns a   ```jwt token```, used to access API functionality. 
