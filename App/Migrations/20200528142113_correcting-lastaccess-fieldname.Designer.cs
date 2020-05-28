@@ -13,7 +13,7 @@ namespace App.Migrations
     [Migration("20200528142113_correcting-lastaccess-fieldname")]
     partial class correctinglastaccessfieldname
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel (ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

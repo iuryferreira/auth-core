@@ -5,7 +5,7 @@ namespace App.Migrations
 {
     public partial class correctinglastaccessfieldname : Migration
     {
-        protected override void Up(MigrationBuilder migrationBuilder)
+        protected override void Up (MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
                 name: "last_acess",
@@ -18,7 +18,7 @@ namespace App.Migrations
                 defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
         }
 
-        protected override void Down(MigrationBuilder migrationBuilder)
+        protected override void Down (MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
                 name: "last_access",
