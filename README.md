@@ -15,7 +15,6 @@
 
   <img alt="License" src="https://img.shields.io/badge/licence-MIT-blue">
 
-<hr>
 
 ## ✌ Hello!
 
