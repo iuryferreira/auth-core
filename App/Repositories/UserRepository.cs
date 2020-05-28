@@ -8,6 +8,7 @@ namespace App.Repositories
     public interface IUserRepository
     {
         void Save (User user);
+        Task<User> Get (int id);
     }
 
     public class UserRepository : IUserRepository

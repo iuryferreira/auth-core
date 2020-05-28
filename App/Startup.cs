@@ -1,4 +1,5 @@
 using App.Data;
+using App.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +22,9 @@ namespace App
         {
             services.AddControllers();
             services.AddDbContext<DataContext>(options => options.UseNpgsql(Configuration.GetConnectionString("pg")).UseSnakeCaseNamingConvention());
+
+            services.AddScoped<DataContext, DataContext>();
+            services.AddTransient<IUserRepository, UserRepository>();
         }
 
         public void Configure (IApplicationBuilder app, IWebHostEnvironment env)
