@@ -1,4 +1,4 @@
-using App.Models;
+using App.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -21,7 +21,7 @@ namespace App
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<UserDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("pg")).UseSnakeCaseNamingConvention());
+            services.AddDbContext<DataContext>(options => options.UseNpgsql(Configuration.GetConnectionString("pg")).UseSnakeCaseNamingConvention());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

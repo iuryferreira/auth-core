@@ -1,15 +1,16 @@
+using App.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace App.Models
+namespace App.Data
 {
 
-    class UserDbContext : DbContext
+    class DataContext : DbContext
     {
 
         public IConfiguration Configuration { get; }
 
-        public UserDbContext(DbContextOptions options) : base(options) { }
+        public DataContext(DbContextOptions options) : base(options) { }
 
         public DbSet<User> User { get; set; }
 
