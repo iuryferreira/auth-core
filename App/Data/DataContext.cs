@@ -7,12 +7,10 @@ namespace App.Data
 
     public class DataContext : DbContext
     {
-
-        public IConfiguration Configuration { get; }
-
+        public DataContext () { }
         public DataContext (DbContextOptions options) : base(options) { }
 
-        public DbSet<User> User { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
     }
 
