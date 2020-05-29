@@ -21,7 +21,7 @@ namespace App
         public void ConfigureServices (IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<DataContext>(options => options.UseNpgsql(Configuration.GetConnectionString("pg")).UseSnakeCaseNamingConvention());
+            services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlserver")).UseSnakeCaseNamingConvention());
 
             services.AddScoped<DataContext, DataContext>();
             services.AddTransient<IUserRepository, UserRepository>();
