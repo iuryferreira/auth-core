@@ -1,37 +1,47 @@
+using System;
 using System.Threading.Tasks;
 using App.Data;
 using App.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace App.Repositories
 {
 
     public interface IUserRepository
     {
-        void Save (User user);
+        Task<User> Save (User user);
         Task<User> Get (int id);
     }
 
     public class UserRepository : IUserRepository
     {
 
-        private readonly DataContext context;
+        private DataContext context;
 
         public UserRepository (DataContext context)
         {
             this.context = context;
 
         }
-        public async void Save (User user)
+        public async Task<User> Save (User user)
         {
+            context.Users.Add(user);
+            try
+            {
+                await context.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                return null;
+            }
 
-            context.User.Add(user);
-            await context.SaveChangesAsync();
+            return user;
 
         }
 
         public async Task<User> Get (int id)
         {
-            return await context.User.FindAsync(id);
+            return await context.Users.FindAsync(id);
         }
     }
 
