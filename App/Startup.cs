@@ -1,4 +1,5 @@
 using App.Data;
+using App.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -10,22 +11,23 @@ namespace App
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup (IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices (IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<DataContext>(options => options.UseNpgsql(Configuration.GetConnectionString("pg")).UseSnakeCaseNamingConvention());
+            services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlserver")).UseSnakeCaseNamingConvention());
+
+            services.AddScoped<DataContext, DataContext>();
+            services.AddTransient<IUserRepository, UserRepository>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure (IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
