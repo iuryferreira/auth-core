@@ -6,62 +6,45 @@ using App.Data;
 using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
 using System;
-
+using Tests.Service;
 namespace Tests
 {
 
-
     [TestFixture]
-    public class Tests
+    public class UserRepositoryTests
     {
-        DbContextOptions<DataContext> options;
         private User u;
-        private SqliteConnection dbConnection;
-        private DataContext context;
-
-
+        private UserRepository repository;
+        private DbService db;
 
         [SetUp]
         public void Setup ()
         {
+            db = new DbService();
+            repository = new UserRepository(db.GetContext());
             u = new User { Username = "Iury", Password = "123" };
-
-            dbConnection = new SqliteConnection("DataSource=:memory:");
-            options = new DbContextOptionsBuilder<DataContext>().UseSqlite(dbConnection).Options;
-            context = new DataContext(options);
-
-            dbConnection.Open();
-            context.Database.EnsureCreated();
-
+            db.OpenConnection();
         }
 
         [TearDown]
         public void TearDown ()
         {
-            dbConnection.Close();
+            db.CloseConnection();
         }
 
         [Test]
         public async Task Check_if_repository_saved_the_user ()
         {
-
-            var repository = new UserRepository(context);
             var userReturned = await repository.Save(u);
             Assert.AreNotEqual(null, userReturned, "UserRepository.Save() returns null");
-
         }
 
         [Test]
         public async Task Check_if_return_the_user_saved ()
         {
-
-            var repository = new UserRepository(context);
             await repository.Save(u);
             var userReturned = await repository.Get(1);
             Assert.AreEqual(1, userReturned.Id, "UserRepository.Get() returns error");
-
         }
-
-
     }
 }
