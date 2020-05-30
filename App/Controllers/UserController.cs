@@ -10,15 +10,21 @@ namespace App.Controllers
     [Route("users")]
     public class UserController : ControllerBase
     {
+        private readonly IUserRepository repository;
+
+        public UserController (IUserRepository repository)
+        {
+            this.repository = repository;
+        }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> Get ([FromServices] IUserRepository repository, [FromRoute] int id)
+        public async Task<ActionResult<User>> Get ([FromRoute] int id)
         {
             return await repository.Get(id);
         }
 
         [HttpPost]
-        public async Task<ActionResult<User>> Post ([FromServices] IUserRepository repository, [FromBody] User u)
+        public async Task<ActionResult<User>> Post ([FromBody] User u)
         {
             var userCreated = await repository.Save(u);
             return CreatedAtAction("Get", new { id = userCreated.Id }, userCreated);
