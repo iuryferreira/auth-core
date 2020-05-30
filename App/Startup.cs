@@ -11,9 +11,11 @@ namespace App
 {
     public class Startup
     {
-        public Startup (IConfiguration configuration)
+        IWebHostEnvironment env;
+        public Startup (IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
+            this.env = env;
         }
 
         public IConfiguration Configuration { get; }
@@ -21,8 +23,15 @@ namespace App
         public void ConfigureServices (IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlserver")).UseSnakeCaseNamingConvention());
 
+            if (env.IsEnvironment("Testing"))
+            {
+                services.AddDbContext<DataContext>(options => options.UseInMemoryDatabase("db"));
+            }
+            else
+            {
+                services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlserver")).UseSnakeCaseNamingConvention());
+            }
             services.AddScoped<DataContext, DataContext>();
             services.AddTransient<IUserRepository, UserRepository>();
         }
