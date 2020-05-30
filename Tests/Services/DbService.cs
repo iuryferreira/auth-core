@@ -12,7 +12,6 @@ namespace Tests.Service
     }
     public class DbService : IDbService
     {
-
         private DataContext context;
         private DbContextOptions<DataContext> options;
         private SqliteConnection connection;
