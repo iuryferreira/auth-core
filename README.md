@@ -19,7 +19,7 @@
 
 This repository contains an authentication API using NET Core 3.1 based on ```roles```, which authenticates a user by providing the credentials of ```username``` and ```password``` and returns a   ```jwt token```, used to access API functionality. 
 
-The database provider used is [```Microsoft.EntityFrameworkCore.SqlServer```](https://docs.microsoft.com/en-us/ef/core/), for SQL Server.
+The database provider used is [```Microsoft.EntityFrameworkCore.SqlServer```](https://docs.microsoft.com/en-us/ef/core/), for SQL Server. This system also registers users by hashing their password.
 
 ### :memo: License
 
