@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="Authentication" title="User Registration" src="https://image.flaticon.com/icons/png/512/1995/1995670.png" width="200px" />
+  <img alt="Authentication" title="User Registration" src="https://miro.medium.com/max/498/1*Es2vCEieszU7QQqsLChl6A.png" width="200px" />
 </p>
 
 <h3 align="center">
