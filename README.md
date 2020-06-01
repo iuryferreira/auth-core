@@ -19,6 +19,8 @@
 
 This repository contains a project responsible for registering users who provide their ```username``` and ```password```, I have their password protected by hash.
 
+This solution is divided into two projects, one in the **App** folder, which contains the entire business rule implemented and the other in the **Tests** folder, containing the implemented unit and integration tests.
+
 The database provider used is [```Microsoft.EntityFrameworkCore.SqlServer```](https://docs.microsoft.com/en-us/ef/core/), for SQL Server. 
 
 ### :memo: License
