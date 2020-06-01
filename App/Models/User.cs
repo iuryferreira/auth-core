@@ -7,11 +7,10 @@ namespace App.Models
     public class User
     {
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Your username cannot be empty.")]
         public string Username { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Your password cannot be empty."), MinLength(6, ErrorMessage = "Your password must be longer than 6 characters.")]
         public string Password { get; set; }
-        public DateTime? LastAccess { get; set; }
     }
 
 }
