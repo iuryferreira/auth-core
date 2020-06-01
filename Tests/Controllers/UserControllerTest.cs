@@ -33,7 +33,6 @@ namespace Tests.Controllers
         public async Task Return_201_if_user_is_created ()
         {
             var response = await client.PostAsync("http://localhost:5000/users", content);
-            Console.WriteLine(response.Headers);
             Assert.AreEqual(HttpStatusCode.Created, response.StatusCode);
         }
 
@@ -55,7 +54,7 @@ namespace Tests.Controllers
 
             var response = await client.GetAsync("http://localhost:5000/users/1");
 
-            string userTested = JsonSerializer.Serialize(new User { Id = 1, Username = "Iury", Password = "123", LastAccess = null }).ToLower();
+            string userTested = JsonSerializer.Serialize(new User { Id = 1, Username = "Iury", Password = "", LastAccess = null }).ToLower();
 
             string userReturned = (await response.Content.ReadAsStringAsync()).ToLower();
             Assert.AreEqual(userTested, userReturned);
