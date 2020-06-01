@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Text;
 using System;
-using Tests.Models;
 using Tests.Service;
 
 namespace Tests.Controllers
@@ -20,14 +19,14 @@ namespace Tests.Controllers
     {
 
         private HttpClient client;
-        private TestUser u;
+        private User u;
         private StringContent content;
 
         [SetUp]
         public void SetUp ()
         {
             client = new ServerService().GetClient();
-            u = new TestUser { Username = "Iury", Password = "123" };
+            u = new User { Username = "Iury", Password = "123" };
             string user = JsonSerializer.Serialize(u);
             content = new StringContent(user, Encoding.UTF8, "application/json");
 
