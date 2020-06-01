@@ -1,11 +1,7 @@
 using App.Repositories;
 using App.Models;
 using NUnit.Framework;
-using Microsoft.EntityFrameworkCore;
-using App.Data;
 using System.Threading.Tasks;
-using Microsoft.Data.Sqlite;
-using System;
 using Tests.Service;
 
 namespace Tests.Repositories
