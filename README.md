@@ -3,7 +3,7 @@
 </p>
 
 <h3 align="center">
-  Authentication API with NET Core 3.1
+   User Registration with NET Core 3.1
 </h3>
 
 <p align="center">
