@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using App.Data;
 using App.Models;
+using App.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace App.Repositories
@@ -17,14 +18,17 @@ namespace App.Repositories
     {
 
         private DataContext context;
+        private IHasher hasher;
 
         public UserRepository (DataContext context)
         {
             this.context = context;
+            hasher = new Hasher();
 
         }
         public async Task<User> Save (User user)
         {
+            user.Password = hasher.Hash(user.Password);
             context.Users.Add(user);
             try
             {
@@ -41,7 +45,9 @@ namespace App.Repositories
 
         public async Task<User> Get (int id)
         {
-            return await context.Users.FindAsync(id);
+            var user = await context.Users.FindAsync(id);
+            user.Password = "";
+            return user;
         }
     }
 
