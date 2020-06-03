@@ -6,14 +6,13 @@ namespace App.Services
 {
     public interface IHasher
     {
-        public string Hash (string password);
+        public string Hash (string password, int iterations = 1000);
         public bool Check (string password, string hash);
 
     }
 
     public sealed class Hasher : IHasher
     {
-        private int iterations = 10000; // Number of iterations
         private const int saltSize = 16; // 128 bit 
         private const int keySize = 32; // 256 bit
 
@@ -31,7 +30,7 @@ namespace App.Services
             return isEqual;
 
         }
-        public string Hash (string password)
+        public string Hash (string password, int iterations = 10000)
         {
             var algorithm = new Rfc2898DeriveBytes(password, saltSize, iterations, HashAlgorithmName.SHA256);
             var key = Convert.ToBase64String(algorithm.GetBytes(keySize));
