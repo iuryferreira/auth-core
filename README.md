@@ -9,11 +9,15 @@
 <p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/badge/language-1-blue">
 
-  <a href="https://www.linkedin.com/in/laurabeatris/">
+  <a href="">
     <img alt="Made by Iury Ferreira" src="https://img.shields.io/badge/made%20by-Iury%20Ferreira-blue">
   </a>
 
   <img alt="License" src="https://img.shields.io/badge/license-MIT-blue">
+  
+   <a href="![.NET Core Tests]">
+    <img alt=".NET Core Tests" src="https://github.com/iuryferreira/registration-core/workflows/.NET%20Core%20Tests/badge.svg">
+  </a>
 
 ### ✌ Hello!
 
